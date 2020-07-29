@@ -5,11 +5,25 @@ import Tab from './components/Tab';
 
 function App() {
 
-  const [tabs, setTabs] = useState([]);
+  const tabs = [{
+    label: 'tab1',
+    content: 'tab 1 content'
+  },
+  {
+    label: 'tab2',
+    content: 'tab2 content'
+  },
+  {
+    label: 'tab3',
+    content: 'tab3 content'
+  }
+
+];
 
   return (
     <div className="App">
-
+      <Tab tabs={tabs}></Tab>
+      <Display></Display>
     </div>
   );
 }
