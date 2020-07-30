@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Display from './components/Display';
 import Tab from './components/Tab';
 
 function App() {
+
+  const [shownContent, setShownContent] = useState(0);
 
   const tabs = [{
     label: 'tab1',
@@ -11,19 +13,23 @@ function App() {
   },
   {
     label: 'tab2',
-    content: 'tab2 content'
+    content: 'tab 2 content'
   },
   {
     label: 'tab3',
-    content: 'tab3 content'
+    content: 'tab 3 content'
   }
+  ];
 
-];
-
+  function handleClick(index) {
+    console.log(index);
+    setShownContent(index);
+  }
+  
   return (
     <div className="App">
-      <Tab tabs={tabs}></Tab>
-      <Display></Display>
+      <Tab handleClick={handleClick} tabs={tabs}></Tab>
+      <Display shownContent={shownContent} tabs={tabs}></Display>
     </div>
   );
 }
