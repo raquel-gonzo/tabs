@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 const Tab = (props) => {
 
@@ -9,13 +10,18 @@ const Tab = (props) => {
         display: 'flex',
         flexDirection: 'column'
     }
-    
+
     console.log('This is props: ', props);
     return (
         <div>
             {
                 props.tabs.map((tab, index) => { // tab and index are parameters for the map function. 
-                    return <p onClick={() => props.handleClick(index)} style={tabStyle} key={index}>{tab.label}</p> 
+                    return <p onClick={() => {
+                        props.handleClick(index)
+                    }} 
+                    className={props.shownContent === index ? 'selected' : ''}
+                    style={tabStyle} 
+                    key={index}>{tab.label}</p>
                 })
             }
         </div>

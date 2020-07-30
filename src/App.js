@@ -6,6 +6,7 @@ import Tab from './components/Tab';
 function App() {
 
   const [shownContent, setShownContent] = useState(0);
+  
 
   const tabs = [{
     label: 'tab1',
@@ -25,10 +26,10 @@ function App() {
     console.log(index);
     setShownContent(index);
   }
-  
+
   return (
     <div className="App">
-      <Tab handleClick={handleClick} tabs={tabs}></Tab>
+      <Tab handleClick={handleClick} tabs={tabs} shownContent={shownContent}></Tab>
       <Display shownContent={shownContent} tabs={tabs}></Display>
     </div>
   );
